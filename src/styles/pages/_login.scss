@@ -1,0 +1,58 @@
+@import "../utils/variables";
+
+.loginContainer {
+  background-color: $secondary;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    text-align: center;
+    color: $primary;
+    padding: 10px 0;
+  }
+
+  form {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px;
+    padding: 50px 0;
+    gap: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    label {
+      color: $secondary;
+      font-size: 20px;
+      font-weight: semibold;
+    }
+
+    input {
+      width: 300px;
+      height: 30px;
+      border-radius: 5px;
+      border: $secondary solid 1px;
+      padding: 5px;
+    }
+
+    button {
+      width: 100px;
+      height: 30px;
+      border-radius: 5px;
+      border: none;
+      background-color: $secondary;
+      color: white;
+    }
+  }
+
+  .error {
+    color: $primary;
+  }
+}
