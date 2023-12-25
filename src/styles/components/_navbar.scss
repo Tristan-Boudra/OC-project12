@@ -1,0 +1,22 @@
+@import "../utils/variables";
+
+nav {
+  background-color: $tertiary;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 18px 91px 18px 29px;
+
+    li {
+      font-size: 24px;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}

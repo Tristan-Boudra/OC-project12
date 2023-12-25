@@ -1,0 +1,28 @@
+aside {
+  background-color: $tertiary;
+  width: max-content;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    gap: 20px;
+
+    li {
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+
+  p {
+    text-align: center;
+    color: white;
+    rotate: -90deg;
+  }
+}
