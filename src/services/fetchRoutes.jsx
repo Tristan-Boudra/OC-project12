@@ -1,27 +1,47 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { fetchData } from "./fetchData";
-import { apiUrl } from "./apiUrl";
+import apiService from "./apiService";
 
-export function FetchRoutes() {
-  const { userId } = useParams();
-
-  const userUrl = `${apiUrl}/user/${userId}`;
-  const activityUrl = `${apiUrl}/user/${userId}/activity`;
-  const avgSessionsUrl = `${apiUrl}/user/${userId}/average-sessions`;
-  const performanceURl = `${apiUrl}/user/${userId}/performance`;
-
+export function FetchRoutes(userId) {
   const [userData, setUserData] = useState();
   const [activityData, setActivityData] = useState();
   const [avgSessionsData, setAvgSessionsData] = useState();
   const [performanceData, setPerformanceData] = useState();
 
   useEffect(() => {
-    fetchData(userUrl).then((data) => setUserData(data));
-    fetchData(activityUrl).then((data) => setActivityData(data));
-    fetchData(avgSessionsUrl).then((data) => setAvgSessionsData(data));
-    fetchData(performanceURl).then((data) => setPerformanceData(data));
-  }, [userUrl, activityUrl, avgSessionsUrl, performanceURl]);
+    const fetchData = async () => {
+      try {
+        const allUsersData = await apiService.getUserMainData();
+        const userActivity = await apiService.getUserActivity();
+        const userAverageSessions = await apiService.getUserAverageSessions();
+        const userPerformance = await apiService.getUserPerformance();
+
+        const currentUserData = allUsersData.find(
+          (user) => user.id === Number(userId)
+        );
+
+        const currentUserActivityData = userActivity.filter(
+          (data) => data.userId === Number(userId)
+        );
+
+        const currentUserAvgSessionsData = userAverageSessions.filter(
+          (data) => data.userId === Number(userId)
+        );
+
+        const currentUserPerformanceData = userPerformance.filter(
+          (data) => data.userId === Number(userId)
+        );
+
+        setUserData(currentUserData);
+        setActivityData(currentUserActivityData);
+        setAvgSessionsData(currentUserAvgSessionsData);
+        setPerformanceData(currentUserPerformanceData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [userId]);
 
   return {
     userData,
