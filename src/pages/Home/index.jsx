@@ -4,13 +4,16 @@ import { Navbar } from "../../components/Navbar";
 import { Sidebar } from "../../components/Sidebar";
 import { FetchRoutes } from "../../services/fetchRoutes";
 import DailyActivity from "../../components/DailyActivity";
+import AverageSessions from "../../components/AverageSessions";
 
 export default function App() {
   const { userId } = useParams();
-  const { userData, activityData } = FetchRoutes(userId);
+  const { userData, activityData, avgSessionsData } = FetchRoutes(userId);
+
+  // console.log(avgSessionsData.data);
 
   // Vérifie si les données sont bien chargées
-  if (!userData || !activityData) {
+  if (!userData || !activityData || !avgSessionsData) {
     return <div>Loading...</div>;
   }
 
@@ -33,6 +36,11 @@ export default function App() {
             <div className="chartsLeft">
               <div className="dailyActivityChart allCharts">
                 <DailyActivity data={activityData} />
+              </div>
+              <div className="chartsBottom">
+                <div className="sessionsChart allCharts">
+                  <AverageSessions data={avgSessionsData} />
+                </div>
               </div>
             </div>
           </div>

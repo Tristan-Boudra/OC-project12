@@ -89,12 +89,21 @@ main section .charts .chartsLeft .allCharts {
 main section .charts .chartsLeft .dailyActivityChart {
   width: 100%;
   height: 300px;
-  padding: 20px;
+  padding: 30px;
 }
-main section .charts .chartsLeft .sessionsChart {
+main section .charts .chartsLeft .chartsBottom {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-top: 20px;
+}
+main section .charts .chartsLeft .chartsBottom .sessionsChart {
+  width: 350px;
+  height: 250px;
+  padding: 20px;
   background: #ff0000;
 }
-main section .charts .chartsLeft .performanceChart {
+main section .charts .chartsLeft .chartsBottom .performanceChart {
   background: #282d30;
 }
 main section .charts .chartsRight {
