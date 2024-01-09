@@ -5,10 +5,12 @@ import { Sidebar } from "../../components/Sidebar";
 import { FetchRoutes } from "../../services/fetchRoutes";
 import DailyActivity from "../../components/DailyActivity";
 import AverageSessions from "../../components/AverageSessions";
+import Performance from "../../components/Performance";
 
 export default function App() {
   const { userId } = useParams();
-  const { userData, activityData, avgSessionsData } = FetchRoutes(userId);
+  const { userData, activityData, avgSessionsData, performanceData } =
+    FetchRoutes(userId);
 
   // console.log(avgSessionsData.data);
 
@@ -40,6 +42,9 @@ export default function App() {
               <div className="chartsBottom">
                 <div className="sessionsChart allCharts">
                   <AverageSessions data={avgSessionsData} />
+                </div>
+                <div className="performanceChart allCharts">
+                  <Performance data={performanceData} />
                 </div>
               </div>
             </div>
