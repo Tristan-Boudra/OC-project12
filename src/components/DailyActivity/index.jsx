@@ -25,16 +25,16 @@ export default function DailyActivity(props) {
           style={{
             background: "#E60000",
             color: "#FFFFFF",
-            padding: "0.25em 0.5em",
+            padding: "10px 10px",
             textAlign: "center",
-            fontSize: "1rem",
+            fontSize: "10px",
             fontWeight: "500",
           }}
         >
           {payload.map((entry, index) => (
             <p
               key={index}
-              style={{ margin: "1.25em 0" }}
+              style={{ margin: "15px 0" }}
             >{`${entry.value} ${entry.unit}`}</p>
           ))}
         </div>

@@ -1,0 +1,21 @@
+@import "../utils/variables";
+
+main {
+  section {
+    .charts {
+      .chartsLeft {
+        .chartsBottom {
+          .objectiveChart {
+            width: 350px;
+            height: 250px;
+            padding: 20px;
+
+            .recharts-responsive-container {
+              height: 280px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

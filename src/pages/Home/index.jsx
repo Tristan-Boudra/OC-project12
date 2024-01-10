@@ -6,16 +6,15 @@ import { FetchRoutes } from "../../services/fetchRoutes";
 import DailyActivity from "../../components/DailyActivity";
 import AverageSessions from "../../components/AverageSessions";
 import Performance from "../../components/Performance";
+import Objective from "../../components/Objective";
 
 export default function App() {
   const { userId } = useParams();
   const { userData, activityData, avgSessionsData, performanceData } =
     FetchRoutes(userId);
 
-  // console.log(avgSessionsData.data);
-
   // Vérifie si les données sont bien chargées
-  if (!userData || !activityData || !avgSessionsData) {
+  if (!userData || !activityData || !avgSessionsData || !performanceData) {
     return <div>Loading...</div>;
   }
 
@@ -45,6 +44,9 @@ export default function App() {
                 </div>
                 <div className="performanceChart allCharts">
                   <Performance data={performanceData} />
+                </div>
+                <div className="objectiveChart allCharts">
+                  <Objective data={userData} />
                 </div>
               </div>
             </div>
