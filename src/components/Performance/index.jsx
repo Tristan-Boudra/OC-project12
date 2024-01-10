@@ -6,6 +6,15 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+/**
+ * Composant qui représente un graphique radar pour afficher les performances.
+ * @component
+ * @param {Object} props - Les propriétés du composant.
+ * @param {Object} props.data - Les données du composant.
+ * @param {Array} props.data[0].data - Les données de performances.
+ * @returns {JSX.Element} - Élément JSX représentant le graphique radar.
+ */
+
 export default function Performance(props) {
   const performanceData = props.data[0].data;
 

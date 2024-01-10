@@ -4,6 +4,12 @@ import iconDumbbell from "../../assets/Sidebar/iconDumbbell.png";
 import iconSwim from "../../assets/Sidebar/iconSwim.png";
 import iconZen from "../../assets/Sidebar/iconZen.png";
 
+/**
+ * Composant Sidebar représentant la barre latérale.
+ * @component
+ * @returns {JSX.Element} - Élément JSX représentant la barre latérale.
+ */
+
 export function Sidebar() {
   return (
     <aside>

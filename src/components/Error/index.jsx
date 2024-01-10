@@ -1,5 +1,11 @@
 import "../../styles/main.scss";
 
+/**
+ * Composant qui représente une page d'erreur 404.
+ * @component
+ * @returns {JSX.Element} - Élément JSX représentant la page d'erreur.
+ */
+
 function Error() {
   return (
     <div className="errorContainer">

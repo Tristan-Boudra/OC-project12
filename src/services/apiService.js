@@ -1,4 +1,10 @@
 import { fetchData } from "./fetchData";
+import {
+  formatUserData,
+  formatUserActivity,
+  formatUserAverageSessions,
+  formatUserPerformance,
+} from "./dataFormatter";
 
 const mockUserData = [
   {
@@ -267,18 +273,20 @@ const useMockData = true;
 
 const apiService = {
   getUserMainData: () =>
-    useMockData ? Promise.resolve(mockUserData) : fetchData("/user"),
+    useMockData
+      ? Promise.resolve(formatUserData(mockUserData))
+      : fetchData("/user"),
   getUserActivity: () =>
     useMockData
-      ? Promise.resolve(mockUserActivity)
+      ? Promise.resolve(formatUserActivity(mockUserActivity))
       : fetchData("/user/activity"),
   getUserAverageSessions: () =>
     useMockData
-      ? Promise.resolve(mockUserAverageSessions)
+      ? Promise.resolve(formatUserAverageSessions(mockUserAverageSessions))
       : fetchData("/user/average-sessions"),
   getUserPerformance: () =>
     useMockData
-      ? Promise.resolve(mockUserPerformance)
+      ? Promise.resolve(formatUserPerformance(mockUserPerformance))
       : fetchData("/user/performance"),
 };
 

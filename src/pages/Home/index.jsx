@@ -13,6 +13,12 @@ import ProteinesIcon from "../../assets/FoodIcon/protein-icon.png";
 import GlucidesIcon from "../../assets/FoodIcon/carbs-icon.png";
 import LipidesIcon from "../../assets/FoodIcon/fat-icon.png";
 
+/**
+ * Composant principal de l'application représentant la page du tableau de bord.
+ * @component
+ * @returns {JSX.Element} - Élément JSX représentant la page du tableau de bord.
+ */
+
 export default function App() {
   const { userId } = useParams();
   const { userData, activityData, avgSessionsData, performanceData } =

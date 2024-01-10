@@ -1,6 +1,12 @@
 import logoSportSee from "../../assets/logoSportSee.png";
 import "../../styles/main.scss";
 
+/**
+ * Composant qui représente la barre de navigation.
+ * @component
+ * @returns {JSX.Element} - Élément JSX représentant la barre de navigation.
+ */
+
 export function Navbar() {
   return (
     <nav>

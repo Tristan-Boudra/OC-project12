@@ -3,15 +3,31 @@ import { apiUrl } from "../../services/apiUrl";
 import { useState } from "react";
 import "../../styles/main.scss";
 
+/**
+ * Composant représentant la page de connexion.
+ * @component
+ * @returns {JSX.Element} - Élément JSX représentant la page de connexion.
+ */
+
 export function Login() {
   const navigate = useNavigate();
   const [userId, setId] = useState("");
   const [error, setError] = useState(false);
   const userUrl = `${apiUrl}/user/${userId}`;
 
+  /**
+   * Gère le changement de la valeur de l'ID utilisateur.
+   * @param {Object} event - L'événement de changement de la valeur de l'input.
+   */
+
   const handleChange = (event) => {
     setId(event.target.value);
   };
+
+  /**
+   * Gère la soumission du formulaire de connexion.
+   * @param {Object} event - L'événement de soumission du formulaire.
+   */
 
   const handleSubmit = (event) => {
     event.preventDefault();

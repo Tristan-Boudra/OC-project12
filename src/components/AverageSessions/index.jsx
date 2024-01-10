@@ -7,9 +7,25 @@ import {
   YAxis,
 } from "recharts";
 
+/**
+ * Composant qui représente un graphique de la durée moyenne des sessions.
+ * @component
+ * @param {Object} props - Les propriétés du composant.
+ * @param {Array} props.data - Les données du graphique.
+ * @returns {JSX.Element} - Élément JSX représentant le graphique.
+ */
+
 export default function AverageSessions(props) {
   const avgSessionsData = props.data[0].sessions;
   const dayLetters = ["L", "M", "M", "J", "V", "S", "D"];
+
+  /**
+   * Fonction de rendu du tooltip personnalisé.
+   * @param {Object} param - Les paramètres du tooltip.
+   * @param {boolean} param.active - Indique si le tooltip est actif.
+   * @param {Array} param.payload - Les données du tooltip.
+   * @returns {JSX.Element} - Élément JSX représentant le contenu du tooltip.
+   */
 
   const renderTooltip = ({ active, payload }) => {
     if (active && payload.length) {

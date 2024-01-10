@@ -1,7 +1,16 @@
 import { PieChart, Pie, ResponsiveContainer } from "recharts";
 
+/**
+ * Composant qui représente un graphique en secteurs (camembert) pour afficher le score d'objectif.
+ * @component
+ * @param {Object} props - Les propriétés du composant.
+ * @param {Object} props.data - Les données du composant.
+ * @param {number} props.data.todayScore - Le score d'objectif du jour.
+ * @returns {JSX.Element} - Élément JSX représentant le graphique en secteurs.
+ */
+
 export default function Objective(props) {
-  const score = props.data.score || props.data.todayScore;
+  const score = props.data.todayScore;
   const data = [
     {
       value: parseFloat(score) * 100,
