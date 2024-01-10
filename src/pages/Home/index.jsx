@@ -7,6 +7,11 @@ import DailyActivity from "../../components/DailyActivity";
 import AverageSessions from "../../components/AverageSessions";
 import Performance from "../../components/Performance";
 import Objective from "../../components/Objective";
+import Food from "../../components/Food";
+import CalorieIcon from "../../assets/FoodIcon/calories-icon.png";
+import ProteinesIcon from "../../assets/FoodIcon/protein-icon.png";
+import GlucidesIcon from "../../assets/FoodIcon/carbs-icon.png";
+import LipidesIcon from "../../assets/FoodIcon/fat-icon.png";
 
 export default function App() {
   const { userId } = useParams();
@@ -17,6 +22,8 @@ export default function App() {
   if (!userData || !activityData || !avgSessionsData || !performanceData) {
     return <div>Loading...</div>;
   }
+
+  console.log(userData);
 
   return (
     <div>
@@ -48,6 +55,36 @@ export default function App() {
                 <div className="objectiveChart allCharts">
                   <Objective data={userData} />
                 </div>
+              </div>
+            </div>
+            <div className="chartsRight">
+              <div className="calories allCharts">
+                <Food
+                  icon={CalorieIcon}
+                  name="Calories"
+                  value={userData?.keyData?.calorieCount + "kCal"}
+                />
+              </div>
+              <div className="proteins allCharts">
+                <Food
+                  icon={ProteinesIcon}
+                  name="Protéines"
+                  value={userData?.keyData?.proteinCount + "g"}
+                />
+              </div>
+              <div className="glucides allCharts">
+                <Food
+                  icon={GlucidesIcon}
+                  name="Glucides"
+                  value={userData?.keyData?.carbohydrateCount + "g"}
+                />
+              </div>
+              <div className="lipides allCharts">
+                <Food
+                  icon={LipidesIcon}
+                  name="Lipides"
+                  value={userData?.keyData?.lipidCount + "g"}
+                />
               </div>
             </div>
           </div>
