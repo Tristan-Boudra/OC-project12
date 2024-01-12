@@ -29,8 +29,6 @@ export default function App() {
     return <div>Loading...</div>;
   }
 
-  console.log(userData);
-
   return (
     <div>
       <Navbar />

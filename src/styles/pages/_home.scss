@@ -30,7 +30,7 @@ main {
     .charts {
       display: flex;
       width: 100%;
-      height: 100%;
+      height: max-content;
       padding: 77px 0 0 0;
       gap: 30px;
 
@@ -68,18 +68,6 @@ main {
           box-shadow: 0rem 0.2rem 0.4rem rgba(0, 0, 0, 0.0212249);
           border-radius: 0.5rem;
           padding: 27px 0 27px 60px;
-        }
-
-        .calories {
-        }
-
-        .proteins {
-        }
-
-        .glucides {
-        }
-
-        .lipides {
         }
       }
     }
