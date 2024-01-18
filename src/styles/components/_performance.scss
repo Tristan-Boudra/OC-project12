@@ -6,13 +6,11 @@ main {
       .chartsLeft {
         .chartsBottom {
           .performanceChart {
-            width: 350px;
+            width: 100%;
+            max-width: 350px;
             height: 250px;
-            padding: 20px;
+            padding: 2%;
             background: #282d30;
-            .recharts-responsive-container {
-              height: 280px !important;
-            }
           }
         }
       }

@@ -21,34 +21,19 @@ export function FetchRoutes(userId) {
     // Fonction asynchrone pour récupérer les données.
     const fetchData = async () => {
       try {
-        // Récupération des différentes données via le service API.
-        const allUsersData = await apiService.getUserMainData();
-        const userActivity = await apiService.getUserActivity();
-        const userAverageSessions = await apiService.getUserAverageSessions();
-        const userPerformance = await apiService.getUserPerformance();
-
-        // Filtrage des données pour l'utilisateur actuel.
-        const currentUserData = allUsersData.find(
-          (user) => user.id === Number(userId)
+        // Récupération des différentes données via le service API ou des données mockés.
+        const allUsersData = await apiService.getUserMainData(userId);
+        const userActivity = await apiService.getUserActivity(userId);
+        const userAverageSessions = await apiService.getUserAverageSessions(
+          userId
         );
-
-        const currentUserActivityData = userActivity.filter(
-          (data) => data.userId === Number(userId)
-        );
-
-        const currentUserAvgSessionsData = userAverageSessions.filter(
-          (data) => data.userId === Number(userId)
-        );
-
-        const currentUserPerformanceData = userPerformance.filter(
-          (data) => data.userId === Number(userId)
-        );
+        const userPerformance = await apiService.getUserPerformance(userId);
 
         // Mise à jour des états avec les données récupérées.
-        setUserData(currentUserData);
-        setActivityData(currentUserActivityData);
-        setAvgSessionsData(currentUserAvgSessionsData);
-        setPerformanceData(currentUserPerformanceData);
+        setUserData(allUsersData);
+        setActivityData(userActivity);
+        setAvgSessionsData(userAverageSessions);
+        setPerformanceData(userPerformance);
       } catch (error) {
         // Gestion des erreurs en cas de problème lors de la récupération des données.
         console.error("Error fetching data:", error);

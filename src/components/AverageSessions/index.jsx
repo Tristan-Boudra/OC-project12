@@ -63,7 +63,7 @@ export default function AverageSessions(props) {
           y={30}
           textAnchor="left"
           style={{
-            fontSize: "15px",
+            fontSize: "0.9vw",
             fontWeight: 500,
             fill: "#FFFFFF",
             fillOpacity: "50%",

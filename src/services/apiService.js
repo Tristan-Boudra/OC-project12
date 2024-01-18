@@ -1,4 +1,6 @@
 import { fetchData } from "./fetchData";
+import { apiUrl } from "./apiUrl";
+import { useMockData } from "./toggleData";
 import {
   formatUserData,
   formatUserActivity,
@@ -268,26 +270,42 @@ const mockUserPerformance = [
   },
 ];
 
-// Change à false pour utiliser le service API réel
-const useMockData = true;
-
 const apiService = {
-  getUserMainData: () =>
+  getUserMainData: (userId) =>
     useMockData
-      ? Promise.resolve(formatUserData(mockUserData))
-      : fetchData("/user"),
-  getUserActivity: () =>
+      ? Promise.resolve(formatUserData(mockUserData)).then((data) =>
+          data.find((item) => item.id === Number(userId))
+        )
+      : fetchData(`${apiUrl}/user/${userId}`).then((data) =>
+          formatUserData(data)
+        ),
+
+  getUserActivity: (userId) =>
     useMockData
-      ? Promise.resolve(formatUserActivity(mockUserActivity))
-      : fetchData("/user/activity"),
-  getUserAverageSessions: () =>
+      ? Promise.resolve(formatUserActivity(mockUserActivity)).then((data) =>
+          data.filter((item) => item.userId === Number(userId))
+        )
+      : fetchData(`${apiUrl}/user/${userId}/activity`).then((data) =>
+          formatUserActivity(data)
+        ),
+
+  getUserAverageSessions: (userId) =>
     useMockData
-      ? Promise.resolve(formatUserAverageSessions(mockUserAverageSessions))
-      : fetchData("/user/average-sessions"),
-  getUserPerformance: () =>
+      ? Promise.resolve(
+          formatUserAverageSessions(mockUserAverageSessions)
+        ).then((data) => data.filter((item) => item.userId === Number(userId)))
+      : fetchData(`${apiUrl}/user/${userId}/average-sessions`).then((data) =>
+          formatUserAverageSessions(data)
+        ),
+
+  getUserPerformance: (userId) =>
     useMockData
-      ? Promise.resolve(formatUserPerformance(mockUserPerformance))
-      : fetchData("/user/performance"),
+      ? Promise.resolve(formatUserPerformance(mockUserPerformance)).then(
+          (data) => data.filter((item) => item.userId === Number(userId))
+        )
+      : fetchData(`${apiUrl}/user/${userId}/performance`).then((data) =>
+          formatUserPerformance(data)
+        ),
 };
 
 export default apiService;

@@ -6,9 +6,10 @@ main {
       .chartsLeft {
         .chartsBottom {
           .sessionsChart {
-            width: 350px;
+            width: 100%;
+            max-width: 80%;
             height: 250px;
-            padding: 20px;
+            padding: 2%;
             background: #ff0000;
           }
         }

@@ -6,9 +6,10 @@ main {
       .chartsLeft {
         .chartsBottom {
           .objectiveChart {
-            width: 350px;
+            width: 100%;
+            max-width: 350px;
             height: 250px;
-            padding: 20px;
+            padding: 2%;
 
             .recharts-responsive-container {
               height: 280px !important;

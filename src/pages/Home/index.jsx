@@ -12,6 +12,7 @@ import CalorieIcon from "../../assets/FoodIcon/calories-icon.png";
 import ProteinesIcon from "../../assets/FoodIcon/protein-icon.png";
 import GlucidesIcon from "../../assets/FoodIcon/carbs-icon.png";
 import LipidesIcon from "../../assets/FoodIcon/fat-icon.png";
+import { useMockData } from "../../services/toggleData";
 
 /**
  * Composant principal de l'application représentant la page du tableau de bord.
@@ -23,6 +24,11 @@ export default function App() {
   const { userId } = useParams();
   const { userData, activityData, avgSessionsData, performanceData } =
     FetchRoutes(userId);
+
+  const mockUserData = useMockData ? userData : (userData && userData[0]) || {};
+  const firstName = mockUserData?.userInfos?.firstName;
+
+  const mockFoodData = useMockData ? userData : (userData && userData[0]) || {};
 
   // Vérifie si les données sont bien chargées
   if (!userData || !activityData || !avgSessionsData || !performanceData) {
@@ -37,8 +43,7 @@ export default function App() {
         <section>
           <div className="mainContainer">
             <h1>
-              Bonjour{" "}
-              <span className="name">{userData?.userInfos?.firstName}</span>
+              Bonjour <span className="name">{firstName}</span>
             </h1>
             <p className="subtitle">
               Félicitation ! Vous avez explosez vos objectifs hier 👏
@@ -66,28 +71,28 @@ export default function App() {
                 <Food
                   icon={CalorieIcon}
                   name="Calories"
-                  value={userData?.keyData?.calorieCount + "kCal"}
+                  value={mockFoodData?.keyData?.calorieCount + "kCal"}
                 />
               </div>
               <div className="proteins allCharts">
                 <Food
                   icon={ProteinesIcon}
                   name="Protéines"
-                  value={userData?.keyData?.proteinCount + "g"}
+                  value={mockFoodData?.keyData?.proteinCount + "g"}
                 />
               </div>
               <div className="glucides allCharts">
                 <Food
                   icon={GlucidesIcon}
                   name="Glucides"
-                  value={userData?.keyData?.carbohydrateCount + "g"}
+                  value={mockFoodData?.keyData?.carbohydrateCount + "g"}
                 />
               </div>
               <div className="lipides allCharts">
                 <Food
                   icon={LipidesIcon}
                   name="Lipides"
-                  value={userData?.keyData?.lipidCount + "g"}
+                  value={mockFoodData?.keyData?.lipidCount + "g"}
                 />
               </div>
             </div>

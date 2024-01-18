@@ -1,16 +1,9 @@
 import { PieChart, Pie, ResponsiveContainer } from "recharts";
-
-/**
- * Composant qui représente un graphique en secteurs (camembert) pour afficher le score d'objectif.
- * @component
- * @param {Object} props - Les propriétés du composant.
- * @param {Object} props.data - Les données du composant.
- * @param {number} props.data.todayScore - Le score d'objectif du jour.
- * @returns {JSX.Element} - Élément JSX représentant le graphique en secteurs.
- */
+import { useMockData } from "../../services/toggleData";
 
 export default function Objective(props) {
-  const score = props.data.todayScore;
+  const score = useMockData ? props.data.todayScore : props.data[0].todayScore;
+
   const data = [
     {
       value: parseFloat(score) * 100,
@@ -31,7 +24,7 @@ export default function Objective(props) {
           y={50}
           textAnchor="left"
           style={{
-            fontSize: "15px",
+            fontSize: "1vw",
             fontWeight: 500,
             fill: "#20253A",
           }}
@@ -54,7 +47,7 @@ export default function Objective(props) {
           x="50%"
           y="42%"
           textAnchor="middle"
-          style={{ fill: "#282D30", fontSize: "26px", fontWeight: "700" }}
+          style={{ fill: "#282D30", fontSize: "1.8vw", fontWeight: "700" }}
         >
           {scorePercentage} %
         </text>
@@ -62,7 +55,7 @@ export default function Objective(props) {
           x="50%"
           y="50%"
           textAnchor="middle"
-          style={{ fill: "#74798C", fontSize: "16px", fontWeight: "500" }}
+          style={{ fill: "#74798C", fontSize: "0.9vw", fontWeight: "500" }}
         >
           de votre
         </text>
@@ -70,7 +63,7 @@ export default function Objective(props) {
           x="50%"
           y="58%"
           textAnchor="middle"
-          style={{ fill: "#74798C", fontSize: "16px", fontWeight: "500" }}
+          style={{ fill: "#74798C", fontSize: "0.9vw", fontWeight: "500" }}
         >
           objectif
         </text>
