@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# SportSee - Profil Utilisateur
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bienvenue sur le projet de développement de la nouvelle page de profil utilisateur pour SportSee. Cette page permettra aux utilisateurs de suivre le nombre de sessions réalisées et le nombre de calories brûlées.
 
-## Available Scripts
+## Table des matières
+- [Introduction](#introduction)
+- [Maquettes](#maquettes)
+- [User Stories](#user-stories)
+- [Technologies Utilisées](#technologies-utilisées)
+- [Installation](#installation)
+- [Utilisation](#utilisation)
+- [API](#api)
+- [Documentation](#documentation)
+- [Auteur](#auteur)
 
-In the project directory, you can run:
+## Introduction
+Ce projet vise à refaire la page de profil utilisateur de SportSee en utilisant React, avec l'intégration de graphiques d'activité sportive. Les données sont fournies par un backend NodeJS.
 
-### `npm start`
+## Maquettes
+Les maquettes du projet sont disponibles sur [Figma]([lien_figma](https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR?type=design&node-id=1-2&mode=design&t=Hc0U2kyg1D8YhQA9-0)).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## User Stories
+Les User Stories à implémenter dans ce sprint sont disponibles sur le [kanban]([lien_kanban](https://openclassrooms.notion.site/Tableau-de-bord-SportSee-6686aa4b5f44417881a4884c9af5669e)).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Utilisées
+- React
+- D3 / Recharts
+- CSS (concentration sur la version desktop)
+- NodeJS (backend)
+- Fetch / Axios (pour les appels API)
 
-### `npm test`
+## Installation
+1. Clonez le projet depuis GitHub.
+2. Installez les dépendances avec `npm install`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Utilisation
+1. Démarrez l'application avec `npm start`.
+2. Accédez à [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-### `npm run build`
+## API
+Le backend NodeJS pour les appels HTTP est disponible [ici]([lien_backend](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Documentation
+Documentez le projet pour faciliter la collaboration. Utilisez un Readme, de la JSDoc ou des PropTypes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Auteur
+Boudra Tristan
