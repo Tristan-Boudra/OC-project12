@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { apiUrl } from "../../services/apiUrl";
+import { useMockData } from "../../services/toggleData";
 import { useState } from "react";
 import "../../styles/main.scss";
 
@@ -31,18 +32,25 @@ export function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(userUrl)
-      .then((response) => {
-        if (response.ok) {
-          const path = "/user/" + userId;
-          navigate(path);
-        } else {
-          setError(true);
-        }
-      })
-      .catch((error) => {
-        window.location.href = "/error";
-      });
+
+    if (useMockData) {
+      const path = "/user/" + userId;
+      navigate(path);
+    } else {
+      fetch(userUrl)
+        .then((response) => {
+          if (response.ok) {
+            const path = "/user/" + userId;
+            navigate(path);
+          } else {
+            setError(true);
+            window.location.href = "/error";
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
   };
 
   return (

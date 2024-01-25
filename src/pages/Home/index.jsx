@@ -13,6 +13,7 @@ import ProteinesIcon from "../../assets/FoodIcon/protein-icon.png";
 import GlucidesIcon from "../../assets/FoodIcon/carbs-icon.png";
 import LipidesIcon from "../../assets/FoodIcon/fat-icon.png";
 import { useMockData } from "../../services/toggleData";
+import { useEffect, useState } from "react";
 
 /**
  * Composant principal de l'application représentant la page du tableau de bord.
@@ -30,9 +31,34 @@ export default function App() {
 
   const mockFoodData = useMockData ? userData : (userData && userData[0]) || {};
 
-  // Vérifie si les données sont bien chargées
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simuler une durée de chargement de 2 secondes
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    // Nettoyer le timeout lorsque le composant se démonte ou lorsque les données sont chargées
+    return () => clearTimeout(timeoutId);
+  }, [userData, activityData, avgSessionsData, performanceData]);
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-message">Loading...</div>
+      </div>
+    );
+  }
+
   if (!userData || !activityData || !avgSessionsData || !performanceData) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loading-container">
+        <div className="loading-message">
+          Erreur lors du chargement des données
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -62,7 +88,7 @@ export default function App() {
                   <Performance data={performanceData} />
                 </div>
                 <div className="objectiveChart allCharts">
-                  <Objective data={userData} />
+                  <Objective data={mockUserData} />
                 </div>
               </div>
             </div>

@@ -271,41 +271,85 @@ const mockUserPerformance = [
 ];
 
 const apiService = {
-  getUserMainData: (userId) =>
-    useMockData
-      ? Promise.resolve(formatUserData(mockUserData)).then((data) =>
-          data.find((item) => item.id === Number(userId))
-        )
-      : fetchData(`${apiUrl}/user/${userId}`).then((data) =>
-          formatUserData(data)
-        ),
+  getUserMainData: (userId) => {
+    if (useMockData) {
+      return Promise.resolve(formatUserData(mockUserData)).then((data) => {
+        const user = data.find((item) => item.id === Number(userId));
+        if (user) {
+          return user;
+        } else {
+          window.location.href = "/error";
+        }
+      });
+    } else {
+      return fetchData(`${apiUrl}/user/${userId}`).then((data) =>
+        formatUserData(data)
+      );
+    }
+  },
 
-  getUserActivity: (userId) =>
-    useMockData
-      ? Promise.resolve(formatUserActivity(mockUserActivity)).then((data) =>
-          data.filter((item) => item.userId === Number(userId))
-        )
-      : fetchData(`${apiUrl}/user/${userId}/activity`).then((data) =>
-          formatUserActivity(data)
-        ),
+  getUserActivity: (userId) => {
+    if (useMockData) {
+      return Promise.resolve(formatUserActivity(mockUserActivity)).then(
+        (data) => {
+          const userActivities = data.filter(
+            (item) => item.userId === Number(userId)
+          );
+          if (userActivities.length > 0) {
+            return userActivities;
+          } else {
+            window.location.href = "/error";
+          }
+        }
+      );
+    } else {
+      return fetchData(`${apiUrl}/user/${userId}/activity`).then((data) =>
+        formatUserActivity(data)
+      );
+    }
+  },
 
-  getUserAverageSessions: (userId) =>
-    useMockData
-      ? Promise.resolve(
-          formatUserAverageSessions(mockUserAverageSessions)
-        ).then((data) => data.filter((item) => item.userId === Number(userId)))
-      : fetchData(`${apiUrl}/user/${userId}/average-sessions`).then((data) =>
-          formatUserAverageSessions(data)
-        ),
+  getUserAverageSessions: (userId) => {
+    if (useMockData) {
+      return Promise.resolve(
+        formatUserAverageSessions(mockUserAverageSessions)
+      ).then((data) => {
+        const userAverageSessions = data.filter(
+          (item) => item.userId === Number(userId)
+        );
+        if (userAverageSessions.length > 0) {
+          return userAverageSessions;
+        } else {
+          window.location.href = "/error";
+        }
+      });
+    } else {
+      return fetchData(`${apiUrl}/user/${userId}/average-sessions`).then(
+        (data) => formatUserAverageSessions(data)
+      );
+    }
+  },
 
-  getUserPerformance: (userId) =>
-    useMockData
-      ? Promise.resolve(formatUserPerformance(mockUserPerformance)).then(
-          (data) => data.filter((item) => item.userId === Number(userId))
-        )
-      : fetchData(`${apiUrl}/user/${userId}/performance`).then((data) =>
-          formatUserPerformance(data)
-        ),
+  getUserPerformance: (userId) => {
+    if (useMockData) {
+      return Promise.resolve(formatUserPerformance(mockUserPerformance)).then(
+        (data) => {
+          const userPerformances = data.filter(
+            (item) => item.userId === Number(userId)
+          );
+          if (userPerformances.length > 0) {
+            return userPerformances;
+          } else {
+            window.location.href = "/error";
+          }
+        }
+      );
+    } else {
+      return fetchData(`${apiUrl}/user/${userId}/performance`).then((data) =>
+        formatUserPerformance(data)
+      );
+    }
+  },
 };
 
 export default apiService;

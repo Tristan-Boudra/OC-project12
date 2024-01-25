@@ -37,6 +37,7 @@ export function FetchRoutes(userId) {
       } catch (error) {
         // Gestion des erreurs en cas de problème lors de la récupération des données.
         console.error("Error fetching data:", error);
+        window.location.href = "/error";
       }
     };
 

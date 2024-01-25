@@ -1,8 +1,7 @@
 import { PieChart, Pie, ResponsiveContainer } from "recharts";
-import { useMockData } from "../../services/toggleData";
 
 export default function Objective(props) {
-  const score = useMockData ? props.data.todayScore : props.data[0].todayScore;
+  const score = props.data.todayScore;
 
   const data = [
     {
