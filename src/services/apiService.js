@@ -270,7 +270,19 @@ const mockUserPerformance = [
   },
 ];
 
+/**
+ * Service API pour récupérer les données de l'utilisateur.
+ * @namespace
+ */
 const apiService = {
+  /**
+   * Récupère les données principales de l'utilisateur.
+   *
+   * @param {number} userId - L'identifiant de l'utilisateur.
+   * @returns {Promise<UserData>} Une promesse résolue avec les données principales de l'utilisateur.
+   * @memberof apiService
+   * @method
+   */
   getUserMainData: (userId) => {
     if (useMockData) {
       return Promise.resolve(formatUserData(mockUserData)).then((data) => {
@@ -288,6 +300,14 @@ const apiService = {
     }
   },
 
+  /**
+   * Récupère l'activité de l'utilisateur.
+   *
+   * @param {number} userId - L'identifiant de l'utilisateur.
+   * @returns {Promise<Array<UserActivity>>} Une promesse résolue avec l'activité de l'utilisateur.
+   * @memberof apiService
+   * @method
+   */
   getUserActivity: (userId) => {
     if (useMockData) {
       return Promise.resolve(formatUserActivity(mockUserActivity)).then(
@@ -309,6 +329,14 @@ const apiService = {
     }
   },
 
+  /**
+   * Récupère les sessions moyennes de l'utilisateur.
+   *
+   * @param {number} userId - L'identifiant de l'utilisateur.
+   * @returns {Promise<Array<UserAverageSessions>>} Une promesse résolue avec les sessions moyennes de l'utilisateur.
+   * @memberof apiService
+   * @method
+   */
   getUserAverageSessions: (userId) => {
     if (useMockData) {
       return Promise.resolve(
@@ -330,6 +358,14 @@ const apiService = {
     }
   },
 
+  /**
+   * Récupère les performances de l'utilisateur.
+   *
+   * @param {number} userId - L'identifiant de l'utilisateur.
+   * @returns {Promise<Array<UserPerformance>>} Une promesse résolue avec les performances de l'utilisateur.
+   * @memberof apiService
+   * @method
+   */
   getUserPerformance: (userId) => {
     if (useMockData) {
       return Promise.resolve(formatUserPerformance(mockUserPerformance)).then(

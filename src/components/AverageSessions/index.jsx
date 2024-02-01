@@ -50,7 +50,7 @@ export default function AverageSessions(props) {
     <ResponsiveContainer>
       <LineChart
         data={avgSessionsData}
-        margin={{ top: 20, right: 10, left: 10, bottom: 20 }}
+        margin={{ top: 30, right: 10, left: 10, bottom: 20 }}
       >
         <defs>
           <linearGradient id="lineGradient">

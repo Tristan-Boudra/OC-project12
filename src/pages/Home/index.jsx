@@ -26,10 +26,10 @@ export default function App() {
   const { userData, activityData, avgSessionsData, performanceData } =
     FetchRoutes(userId);
 
-  const mockUserData = useMockData ? userData : (userData && userData[0]) || {};
+  const mockUserData = useMockData ? userData : userData?.[0] || {};
   const firstName = mockUserData?.userInfos?.firstName;
 
-  const mockFoodData = useMockData ? userData : (userData && userData[0]) || {};
+  const mockFoodData = useMockData ? userData : userData?.[0] || {};
 
   const [loading, setLoading] = useState(true);
 

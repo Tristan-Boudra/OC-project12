@@ -98,7 +98,7 @@ export default function DailyActivity(props) {
           tickCount={3}
           tick={{ stroke: "#9B9EAC", fontWeight: "400" }}
           type="number"
-          domain={["dataMin - 5", "auto"]}
+          domain={["dataMin - 3", "auto"]}
           dx={14}
         />
         <YAxis
